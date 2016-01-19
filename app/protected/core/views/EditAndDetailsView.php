@@ -116,15 +116,31 @@
             }
             $formEnd = $clipWidget->renderEndWidget();
             $unitscst = $totalbulkpricstm = $totalcostprccstm = 1;
+            $videopricstm = $alarampricstm = $internetpricstm = $phonepricstm = 0;
             if(isset($_SESSION['unitsCstmCstm']) && !empty($_SESSION['unitsCstmCstm']))
                 $unitscst = $_SESSION['unitsCstmCstm'];
             if(isset($_SESSION['totalbulkpricstm']) && !empty($_SESSION['totalbulkpricstm']))
                 $totalbulkpricstm = $_SESSION['totalbulkpricstm'];
             if(isset($_SESSION['totalcostprccstm']) && !empty($_SESSION['totalcostprccstm']))
-                $totalcostprccstm = $_SESSION['totalcostprccstm'];    
+                $totalcostprccstm = $_SESSION['totalcostprccstm'];   
+            
+            if(isset($_SESSION['videopricstm']) && !empty($_SESSION['videopricstm']))
+                $videopricstm = $_SESSION['videopricstm'];   
+            if(isset($_SESSION['alarampricstm']) && !empty($_SESSION['alarampricstm']))
+                $alarampricstm = $_SESSION['alarampricstm'];   
+            if(isset($_SESSION['phonepricstm']) && !empty($_SESSION['phonepricstm']))
+                $phonepricstm = $_SESSION['phonepricstm'];   
+            if(isset($_SESSION['internetpricstm']) && !empty($_SESSION['internetpricstm']))
+                $internetpricstm = $_SESSION['internetpricstm'];       
+
             $content .= '<input type="hidden" name="unitscr" id="unitscr" value="'.$unitscst.'">';
             $content .= '<input type="hidden" name="totalbulkpricstm" id="totalbulkpricstm" value="'.$totalbulkpricstm.'">';
             $content .= '<input type="hidden" name="totalcostprccstm" id="totalcostprccstm" value="'.$totalcostprccstm.'">';
+
+            $content .= '<input type="hidden" name="videopricstm" id="videopricstm" value="'.$videopricstm.'">';
+            $content .= '<input type="hidden" name="alarampricstm" id="alarampricstm" value="'.$alarampricstm.'">';
+            $content .= '<input type="hidden" name="phonepricstm" id="phonepricstm" value="'.$phonepricstm.'">';
+            $content .= '<input type="hidden" name="internetpricstm" id="internetpricstm" value="'.$internetpricstm.'">';
             
             $content .= $formEnd;
             $content .= $this->renderModalContainer();

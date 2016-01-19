@@ -9,6 +9,33 @@ $(document).ready(function()
     $("#Opportunity_totalbulkpriCstm_value").attr('readonly', true);
     $("#Opportunity_tprmonreCstm_value").attr('readonly', true);
     $("#Opportunity_amount_value").attr('readonly', true);
+    
+    var videopricstm = $("#videopricstm").val();
+    var alarampricstm = $("#alarampricstm").val();
+    var phonepricstm = $("#phonepricstm").val();
+    var internetpricstm = $("#internetpricstm").val();
+    if(videopricstm > 0)
+    {
+    	document.getElementById("Contract_propbillCstmCstm").required = true;
+    	$("#Contract_propbillCstmCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+    }	
+    if(alarampricstm > 0)
+    {
+    	document.getElementById("Contract_propAlaramCstm").required = true;
+    	$("#Contract_propAlaramCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+    }
+    if(phonepricstm > 0)
+    {
+    	document.getElementById("Contract_propphoneCstm").required = true;
+    	$("#Contract_propphoneCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+    }
+    if(internetpricstm > 0)
+    {
+    	document.getElementById("Contract_propInternetCstm").required = true;
+    	$("#Contract_propInternetCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+    }
+    
+    	
     $( "#Opportunity_vidpricingCsCstm_value" ).keyup(function() {
             var video = parseInt($("#Opportunity_vidpricingCsCstm_value").val());
             var internet = parseInt($("#Opportunity_internetbulkCstm_value").val());

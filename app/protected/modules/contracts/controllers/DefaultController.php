@@ -117,23 +117,7 @@
 
         public function actionCreateFromRelation($relationAttributeName, $relationModelId, $relationModuleId, $redirectUrl)
         {
-            $sql = "select * from opportunity where id=".$_GET['relationModelId'];
-            $rec = Yii::app()->db->createCommand($sql)->queryRow();
-            $rec_t['value'] = $rec_c ['value'] = '';
-            if(isset($rec['totalbulkpricstm_currencyvalue_id']) && !empty($rec['totalbulkpricstm_currencyvalue_id'])) {
-                //get totalbuilprice
-                $sql_t = "select * from currencyvalue where id=".$rec['totalbulkpricstm_currencyvalue_id'];
-                $rec_t = Yii::app()->db->createCommand($sql_t)->queryRow();
-            }
-            if(isset($rec['constructcoscstm_currencyvalue_id']) && !empty($rec['constructcoscstm_currencyvalue_id'])) {
-                $sql_c = "select * from currencyvalue where id=".$rec['constructcoscstm_currencyvalue_id'];
-                $rec_c = Yii::app()->db->createCommand($sql_c)->queryRow();
-            }
-            $getopportunity = Opportunity::getById(intval($_GET['relationModelId']));
-            $getaccount = Account::getById(intval($getopportunity->account->id));
-            $_SESSION['unitsCstmCstm'] = !empty($getaccount->unitsCstmCstm) ? $getaccount->unitsCstmCstm : $_SESSION['unitsCstmCstm'] * 1;
-            $_SESSION['totalbulkpricstm'] = !empty($rec_t['value']) ? $rec_t['value'] : 1;
-            $_SESSION['totalcostprccstm'] = !empty($rec_c ['value']) ?  $_SESSION['unitsCstmCstm'] * $rec_c ['value'] : 1;
+            $this->getsessionvalues($_GET['relationModelId']);
             $contract = $this->resolveNewModelByRelationInformation( new Contract(),
                                                                                 $relationAttributeName,
                                                                                 (int)$relationModelId,
@@ -150,32 +134,55 @@
             echo $view->render();
         }
 
+        public function getsessionvalues($relationid)
+        {
+            $sql = "select * from opportunity where id=".$relationid;
+            $rec = Yii::app()->db->createCommand($sql)->queryRow();
+            $rec_t['value'] = $rec_c['value'] = $rec_v['value'] = $rec_a['value'] = $rec_i['value'] = $rec_p['value'] = '';
+            if(isset($rec['totalbulkpricstm_currencyvalue_id']) && !empty($rec['totalbulkpricstm_currencyvalue_id'])) {
+                //get totalbuilprice
+                $sql_t = "select * from currencyvalue where id=".$rec['totalbulkpricstm_currencyvalue_id'];
+                $rec_t = Yii::app()->db->createCommand($sql_t)->queryRow();
+            }
+            if(isset($rec['constructcoscstm_currencyvalue_id']) && !empty($rec['constructcoscstm_currencyvalue_id'])) {
+                $sql_c = "select * from currencyvalue where id=".$rec['constructcoscstm_currencyvalue_id'];
+                $rec_c = Yii::app()->db->createCommand($sql_c)->queryRow();
+            }
+            if(isset($rec['vidpricingcscstm_currencyvalue_id']) && !empty($rec['vidpricingcscstm_currencyvalue_id'])) {
+                $sql_v = "select * from currencyvalue where id=".$rec['vidpricingcscstm_currencyvalue_id'];
+                $rec_v = Yii::app()->db->createCommand($sql_v)->queryRow();
+            }
+            if(isset($rec['alarmbulkcstcstm_currencyvalue_id']) && !empty($rec['alarmbulkcstcstm_currencyvalue_id'])) {
+                $sql_a = "select * from currencyvalue where id=".$rec['alarmbulkcstcstm_currencyvalue_id'];
+                $rec_a = Yii::app()->db->createCommand($sql_a)->queryRow();
+            }
+            if(isset($rec['internetbulkcstm_currencyvalue_id']) && !empty($rec['internetbulkcstm_currencyvalue_id'])) {
+                $sql_i = "select * from currencyvalue where id=".$rec['internetbulkcstm_currencyvalue_id'];
+                $rec_i = Yii::app()->db->createCommand($sql_i)->queryRow();
+            }
+            if(isset($rec['phonebulkcstcstm_currencyvalue_id']) && !empty($rec['phonebulkcstcstm_currencyvalue_id'])) {
+                $sql_p = "select * from currencyvalue where id=".$rec['phonebulkcstcstm_currencyvalue_id'];
+                $rec_p = Yii::app()->db->createCommand($sql_p)->queryRow();
+            }
+            $getopportunity = Opportunity::getById(intval($relationid));
+            $getaccount = Account::getById(intval($getopportunity->account->id));
+            $_SESSION['unitsCstmCstm'] = !empty($getaccount->unitsCstmCstm) ? $getaccount->unitsCstmCstm : $_SESSION['unitsCstmCstm'] * 1;
+            $_SESSION['totalbulkpricstm'] = !empty($rec_t['value']) ? $rec_t['value'] : 1;
+            $_SESSION['totalcostprccstm'] = !empty($rec_c ['value']) ?  $_SESSION['unitsCstmCstm'] * $rec_c ['value'] : 1;
+            $_SESSION['videopricstm'] = !empty($rec_v['value']) ? $rec_v['value'] : 0;
+            $_SESSION['alarampricstm'] = !empty($rec_a['value']) ? $rec_a['value'] : 0;
+            $_SESSION['phonepricstm'] = !empty($rec_p['value']) ? $rec_p['value'] : 0;
+            $_SESSION['internetpricstm'] = !empty($rec_i['value']) ? $rec_i['value'] : 0;
+            
+        }
+
         public function actionEdit($id, $redirectUrl = null)
         {
             $contract = Contract::getById(intval($id));
             $sql = "select * from contract_opportunity where contract_id=".$id;
             $rec = Yii::app()->db->createCommand($sql)->queryRow();
-            $rec_t['value'] = $rec_c ['value'] = '';
             if(!empty($rec) && !empty($rec['opportunity_id']))
-            {
-                $getopportunity = Opportunity::getById(intval($rec['opportunity_id']));
-                $sql1 = "select * from opportunity where id=".$rec['opportunity_id'];
-                $rec1 = Yii::app()->db->createCommand($sql1)->queryRow();
-            }
-            if(isset($rec1['totalbulkpricstm_currencyvalue_id']) && !empty($rec1['totalbulkpricstm_currencyvalue_id'])) {
-            //get totalbuilprice
-                $sql_t = "select * from currencyvalue where id=".$rec1['totalbulkpricstm_currencyvalue_id'];
-                $rec_t = Yii::app()->db->createCommand($sql_t)->queryRow();
-            }
-            if(isset($rec1['constructcoscstm_currencyvalue_id']) && !empty($rec1['constructcoscstm_currencyvalue_id'])) {
-                $sql_c = "select * from currencyvalue where id=".$rec1['constructcoscstm_currencyvalue_id'];
-                $rec_c = Yii::app()->db->createCommand($sql_c)->queryRow();
-            }
-            $getaccount = Account::getById(intval($getopportunity->account->id));
-            $_SESSION['unitsCstmCstm'] = !empty($getaccount->unitsCstmCstm) ? $getaccount->unitsCstmCstm : 1;
-            $_SESSION['totalbulkpricstm'] = !empty($rec_t['value']) ? $rec_t['value'] : 1;
-            $_SESSION['totalcostprccstm'] = !empty($rec_c ['value']) ?  $_SESSION['unitsCstmCstm'] * $rec_c ['value'] : $_SESSION['unitsCstmCstm'] * 1;
-            
+                $this->getsessionvalues($rec['opportunity_id']);
             ControllerSecurityUtil::resolveAccessCanCurrentUserWriteModel($contract);
             $this->processEdit($contract, $redirectUrl);
         }
