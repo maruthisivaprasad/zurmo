@@ -2815,3 +2815,23 @@ Stack trace:
 #4 {main}
 REQUEST_URI=/crmzur/app/index.php/protected/core/views/assets/mobile-interactions.js
 ---
+2016/01/19 10:20:07 [error] [php] Undefined index: unitsCstmCstm (C:\xampp\htdocs\opticaltel\app\protected\modules\contracts\controllers\DefaultController.php:169)
+Stack trace:
+#0 C:\xampp\htdocs\opticaltel\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#1 C:\xampp\htdocs\opticaltel\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 C:\xampp\htdocs\opticaltel\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\opticaltel\yii\framework\web\filters\CFilterChain.php(133): ContractsDefaultController->runAction()
+#4 C:\xampp\htdocs\opticaltel\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp\htdocs\opticaltel\yii\framework\web\filters\CFilterChain.php(130): RequiredAttributesControllerFilter->filter()
+#6 C:\xampp\htdocs\opticaltel\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\opticaltel\yii\framework\web\filters\CFilterChain.php(130): RightsControllerFilter->filter()
+#8 C:\xampp\htdocs\opticaltel\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\opticaltel\yii\framework\web\filters\CFilterChain.php(130): RightsControllerFilter->filter()
+#10 C:\xampp\htdocs\opticaltel\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\opticaltel\yii\framework\web\CController.php(265): ContractsDefaultController->runActionWithFilters()
+#12 C:\xampp\htdocs\opticaltel\yii\framework\web\CWebApplication.php(282): ContractsDefaultController->run()
+#13 C:\xampp\htdocs\opticaltel\yii\framework\web\CWebApplication.php(141): WebApplication->runController()
+#14 C:\xampp\htdocs\opticaltel\yii\framework\base\CApplication.php(169): WebApplication->processRequest()
+#15 C:\xampp\htdocs\opticaltel\app\protected\core\components\WebApplication.php(81): WebApplication->run()
+#16 C:\xampp\htdocs\opticaltel\app\index.php(70): WebApplication->run()
+REQUEST_URI=/opticaltel/app/index.php/contracts/default/createFromRelation?relationAttributeName=opportunities&relationModelId=3&relationModuleId=opportunities&redirectUrl=%2Fopticaltel%2Fapp%2Findex.php%2Fopportunities%2Fdefault%2Fdetails%3Fid%3D3%26stickyOffset%3D0

@@ -44,17 +44,18 @@
                                     <td style="padding-left:30px">Projected Penetration</td>
                                     <td style="padding-left:20px"><input type="text" name="video_penetration" id="video_penetration" value=""></td>
                                 </tr>
+                                <tr><td colspan="4"><input type="button" name="video_save" id="video_save" value="Go" onclick="getvideototal();"></td></tr>
                                 <tr>
                                     <td>Total MRR</td>
-                                    <td><input type="text" name="video_total_mmr" id="video_total_mmr" value=""></td>
+                                    <td><input type="text" name="video_total_mmr" id="video_total_mmr" readonly></td>
                                     <td style="padding-left:30px">Net Bulk</td>
-                                    <td style="padding-left:20px"><input type="text" name="video_net_bulk" id="video_net_bulk" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="video_net_bulk" id="video_net_bulk" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Net Retail</td>
-                                    <td><input type="text" name="video_net_retail" id="video_net_retail" value=""></td>
+                                    <td><input type="text" name="video_net_retail" id="video_net_retail" readonly></td>
                                     <td style="padding-left:30px">Total Profit</td>
-                                    <td style="padding-left:20px"><input type="text" name="video_total_profit" id="video_total_profit" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="video_total_profit" id="video_total_profit" readonly></td>
                                 </tr>
                                 <tr><td colspan="4"><h3>Internet</h3></td></tr>
                                 <tr>
@@ -75,17 +76,18 @@
                                     <td style="padding-left:30px">Projected Penetration</td>
                                     <td style="padding-left:20px"><input type="text" name="internet_penetration" id="internet_penetration" value=""></td>
                                 </tr>
+                                <tr><td colspan="4"><input type="button" name="internet_save" id="internet_save" value="Go" onclick="getinternettotal();"></td></tr>
                                 <tr>
                                     <td>Total MRR</td>
-                                    <td><input type="text" name="internet_total_mmr" id="internet_total_mmr" value=""></td>
+                                    <td><input type="text" name="internet_total_mmr" id="internet_total_mmr" readonly></td>
                                     <td style="padding-left:30px">Net Bulk</td>
-                                    <td style="padding-left:20px"><input type="text" name="internet_net_bulk" id="internet_net_bulk" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="internet_net_bulk" id="internet_net_bulk" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Net Retail</td>
-                                    <td><input type="text" name="internet_net_retail" id="internet_net_retail" value=""></td>
+                                    <td><input type="text" name="internet_net_retail" id="internet_net_retail" readonly></td>
                                     <td style="padding-left:30px">Total Profit</td>
-                                    <td style="padding-left:20px"><input type="text" name="internet_total_profit" id="internet_total_profit" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="internet_total_profit" id="internet_total_profit" readonly></td>
                                 </tr>
                                 <tr><td colspan="4"><h3>Phone</h3></td></tr>
                                 <tr>
@@ -106,17 +108,18 @@
                                     <td style="padding-left:30px">Projected Penetration</td>
                                     <td style="padding-left:20px"><input type="text" name="phone_penetration" id="phone_penetration" value=""></td>
                                 </tr>
+                                <tr><td colspan="4"><input type="button" name="phone_save" id="phone_save" value="Go" onclick="getphonetotal();"></td></tr>
                                 <tr>
                                     <td>Total MRR</td>
-                                    <td><input type="text" name="phone_total_mmr" id="phone_total_mmr" value=""></td>
+                                    <td><input type="text" name="phone_total_mmr" id="phone_total_mmr" readonly></td>
                                     <td style="padding-left:30px">Net Bulk</td>
-                                    <td style="padding-left:20px"><input type="text" name="phone_net_bulk" id="phone_net_bulk" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="phone_net_bulk" id="phone_net_bulk" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Net Retail</td>
-                                    <td><input type="text" name="phone_net_retail" id="phone_net_retail" value=""></td>
+                                    <td><input type="text" name="phone_net_retail" id="phone_net_retail" readonly></td>
                                     <td style="padding-left:30px">Total Profit</td>
-                                    <td style="padding-left:20px"><input type="text" name="phone_total_profit" id="phone_total_profit" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="phone_total_profit" id="phone_total_profit" readonly></td>
                                 </tr>
                                 <tr><td colspan="4"><h3>Alarm</h3></td></tr>
                                 <tr>
@@ -137,22 +140,57 @@
                                     <td style="padding-left:30px">Projected Penetration</td>
                                     <td style="padding-left:20px"><input type="text" name="alarm_penetration" id="alarm_penetration" value=""></td>
                                 </tr>
+                                <tr><td colspan="4"><input type="button" name="alarm_save" id="alarm_save" value="Go" onclick="getalarmtotal();"></td></tr>
                                 <tr>
                                     <td>Total MRR</td>
-                                    <td><input type="text" name="alarm_total_mmr" id="alarm_total_mmr" value=""></td>
+                                    <td><input type="text" name="alarm_total_mmr" id="alarm_total_mmr" readonly></td>
                                     <td style="padding-left:30px">Net Bulk</td>
-                                    <td style="padding-left:20px"><input type="text" name="alarm_net_bulk" id="alarm_net_bulk" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="alarm_net_bulk" id="alarm_net_bulk" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Net Retail</td>
-                                    <td><input type="text" name="alarm_net_retail" id="alarm_net_retail" value=""></td>
+                                    <td><input type="text" name="alarm_net_retail" id="alarm_net_retail" readonly></td>
                                     <td style="padding-left:30px">Total Profit</td>
-                                    <td style="padding-left:20px"><input type="text" name="alarm_total_profit" id="alarm_total_profit" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="alarm_total_profit" id="alarm_total_profit" readonly></td>
+                                </tr>
+                                <tr><td colspan="4"><input type="button" name="total_save" id="total_save" value="Go" onclick="gettotal();"></td></tr>
+                                <tr><td colspan="4"><h3>Totals</h3></td></tr>
+                                <tr>
+                                    <td>Bulk Cost Base</td>
+                                    <td><input type="text" name="total_bulk_cost" id="total_bulk_cost" readonly></td>
+                                    <td style="padding-left:30px">Bulk MRR</td>
+                                    <td style="padding-left:20px"><input type="text" name="total_bulk_mmr" id="total_bulk_mmr" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Retail Cost Base</td>
+                                    <td><input type="text" name="total_retail_cost" id="total_retail_cost" readonly></td>
+                                    <td style="padding-left:30px">Retail MRR</td>
+                                    <td style="padding-left:20px"><input type="text" name="total_retail_mmr" id="total_retail_mmr" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Total MRR</td>
+                                    <td><input type="text" name="total_total_mmr" id="total_total_mmr" readonly></td>
+                                    <td style="padding-left:30px">Net Bulk</td>
+                                    <td style="padding-left:20px"><input type="text" name="total_net_bulk" id="total_net_bulk" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Net Retail</td>
+                                    <td><input type="text" name="total_net_retail" id="total_net_retail" readonly></td>
+                                    <td style="padding-left:30px">Total Profit</td>
+                                    <td style="padding-left:20px"><input type="text" name="total_total_profit" id="total_total_profit" readonly></td>
                                 </tr>
                                 <tr><td colspan="4"><h3>Construction Analysis</h3></td></tr>
                                 <tr>
-                                    <td colspan="2">Construction Cost Per Unit</td>
-                                    <td colspan="2"><input type="text" name="const_unit" id="const_unit" value=""></td>
+                                    <td>Construction Cost Per Unit</td>
+                                    <td><input type="text" name="const_qty" id="const_qty" value=""></td>
+                                    <td style="padding-left:30px"><input type="text" name="const_per" id="const_per" value=""></td>
+                                    <td style="padding-left:20px"><input type="button" name="const_unit" id="const_unit" value="Go" onclick="getconstruct();"></td>
+                                </tr>
+                                <tr>
+                                    <td>Totals</td>
+                                    <td><input type="text" name="cosnt_totals" id="cosnt_totals" readonly></td>
+                                    <td style="padding-left:30px">Cost per Unit</td>
+                                    <td style="padding-left:20px"><input type="text" name="cost_per_unit" id="cost_per_unit" readonly></td>
                                 </tr>
                                 <tr><td colspan="4"><h3>Overall Assessment</h3></td></tr>
                                 <tr>
@@ -162,36 +200,36 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">Bulk Margin:</td>
-                                    <td><input type="text" name="bulk_cal" id="bulk_cal" value=""></td>
-                                    <td><input type="text" name="bulk_res" id="bulk_res" value=""></td>
+                                    <td><input type="text" name="bulk_cal" id="bulk_cal" readonly></td>
+                                    <td><input type="text" name="bulk_res" id="bulk_res" readonly></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Blended Margin:</td>
-                                    <td><input type="text" name="blended_cal" id="blended_cal" value=""></td>
-                                    <td><input type="text" name="blended_res" id="blended_res" value=""></td>
+                                    <td><input type="text" name="blended_cal" id="blended_cal" readonly></td>
+                                    <td><input type="text" name="blended_res" id="blended_res" readonly></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">ROI Calculation (Bulk Only):</td>
-                                    <td><input type="text" name="roi_cal" id="roi_cal" value=""></td>
-                                    <td><input type="text" name="roi_res" id="roi_res" value=""></td>
+                                    <td><input type="text" name="roi_cal" id="roi_cal" readonly></td>
+                                    <td><input type="text" name="roi_res" id="roi_res" readonly></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">ROI Calculation (Blended):</td>
-                                    <td><input type="text" name="roi_blended" id="roi_blended" value=""></td>
-                                    <td><input type="text" name="roi_res" id="roi_res" value=""></td>
+                                    <td><input type="text" name="roi_blended" id="roi_blended" readonly></td>
+                                    <td><input type="text" name="roi_res" id="roi_res" readonly></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">CapX ROI w/ Key Money (Bulk):</td>
-                                    <td><input type="text" name="roi_money" id="roi_money" value=""></td>
-                                    <td><input type="text" name="roi_money_res" id="roi_money_res" value=""></td>
+                                    <td><input type="text" name="roi_money" id="roi_money" readonly></td>
+                                    <td><input type="text" name="roi_money_res" id="roi_money_res" readonly></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">CapX ROI w/ Key Money (Blended):</td>
-                                    <td><input type="text" name="roi_key" id="roi_key" value=""></td>
-                                    <td><input type="text" name="roi_key_res" id="roi_key_res" value=""></td>
+                                    <td><input type="text" name="roi_key" id="roi_key" readonly></td>
+                                    <td><input type="text" name="roi_key_res" id="roi_key_res" readonly></td>
                                 </tr>
                                 <tr><td colspan="4"><h3>Overall Score</h3></td></tr>
-                                <tr><td colspan="4"><input type="text" name="overall_score" id="overall_score" value=""></td></tr>
+                                <tr><td colspan="4"><input type="text" name="overall_score" id="overall_score" readonly></td></tr>
                             </tbody>
                         </table>
                     </div>

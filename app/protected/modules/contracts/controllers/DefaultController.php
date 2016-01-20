@@ -138,7 +138,7 @@
         {
             $sql = "select * from opportunity where id=".$relationid;
             $rec = Yii::app()->db->createCommand($sql)->queryRow();
-            $rec_t['value'] = $rec_c['value'] = $rec_v['value'] = $rec_a['value'] = $rec_i['value'] = $rec_p['value'] = '';
+            $rec_t['value'] = $rec_c['value'] = $rec_v['value'] = $rec_a['value'] = $rec_i['value'] = $rec_p['value'] = $bulkval = '';
             if(isset($rec['totalbulkpricstm_currencyvalue_id']) && !empty($rec['totalbulkpricstm_currencyvalue_id'])) {
                 //get totalbuilprice
                 $sql_t = "select * from currencyvalue where id=".$rec['totalbulkpricstm_currencyvalue_id'];
@@ -164,6 +164,16 @@
                 $sql_p = "select * from currencyvalue where id=".$rec['phonebulkcstcstm_currencyvalue_id'];
                 $rec_p = Yii::app()->db->createCommand($sql_p)->queryRow();
             }
+            
+            if(isset($rec['bulkservprcscstm_multiplevaluescustomfield_id']) && !empty($rec['bulkservprcscstm_multiplevaluescustomfield_id'])) {
+                $sql_va = "select * from customfieldvalue where multiplevaluescustomfield_id=".$rec['bulkservprcscstm_multiplevaluescustomfield_id'];
+                $rec_va = Yii::app()->db->createCommand($sql_va)->queryAll();
+                foreach($rec_va as $key=>$value)
+                {
+                    $bulkval .= $value['value'].",";
+                }
+                $bulkval = rtrim($bulkval, ",");
+            }
             $getopportunity = Opportunity::getById(intval($relationid));
             $getaccount = Account::getById(intval($getopportunity->account->id));
             $_SESSION['unitsCstmCstm'] = !empty($getaccount->unitsCstmCstm) ? $getaccount->unitsCstmCstm : $_SESSION['unitsCstmCstm'] * 1;
@@ -173,7 +183,7 @@
             $_SESSION['alarampricstm'] = !empty($rec_a['value']) ? $rec_a['value'] : 0;
             $_SESSION['phonepricstm'] = !empty($rec_p['value']) ? $rec_p['value'] : 0;
             $_SESSION['internetpricstm'] = !empty($rec_i['value']) ? $rec_i['value'] : 0;
-            
+            $_SESSION['bulkval'] = $bulkval;
         }
 
         public function actionEdit($id, $redirectUrl = null)

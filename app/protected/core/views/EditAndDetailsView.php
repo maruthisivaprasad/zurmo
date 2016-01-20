@@ -116,7 +116,7 @@
             }
             $formEnd = $clipWidget->renderEndWidget();
             $unitscst = $totalbulkpricstm = $totalcostprccstm = 1;
-            $videopricstm = $alarampricstm = $internetpricstm = $phonepricstm = 0;
+            $videopricstm = $alarampricstm = $internetpricstm = $phonepricstm = $bulkval = 0;
             if(isset($_SESSION['unitsCstmCstm']) && !empty($_SESSION['unitsCstmCstm']))
                 $unitscst = $_SESSION['unitsCstmCstm'];
             if(isset($_SESSION['totalbulkpricstm']) && !empty($_SESSION['totalbulkpricstm']))
@@ -131,7 +131,9 @@
             if(isset($_SESSION['phonepricstm']) && !empty($_SESSION['phonepricstm']))
                 $phonepricstm = $_SESSION['phonepricstm'];   
             if(isset($_SESSION['internetpricstm']) && !empty($_SESSION['internetpricstm']))
-                $internetpricstm = $_SESSION['internetpricstm'];       
+                $internetpricstm = $_SESSION['internetpricstm']; 
+            if(isset($_SESSION['bulkval']) && !empty($_SESSION['bulkval']))
+                $bulkval = $_SESSION['bulkval']; 
 
             $content .= '<input type="hidden" name="unitscr" id="unitscr" value="'.$unitscst.'">';
             $content .= '<input type="hidden" name="totalbulkpricstm" id="totalbulkpricstm" value="'.$totalbulkpricstm.'">';
@@ -141,6 +143,7 @@
             $content .= '<input type="hidden" name="alarampricstm" id="alarampricstm" value="'.$alarampricstm.'">';
             $content .= '<input type="hidden" name="phonepricstm" id="phonepricstm" value="'.$phonepricstm.'">';
             $content .= '<input type="hidden" name="internetpricstm" id="internetpricstm" value="'.$internetpricstm.'">';
+            $content .= '<input type="hidden" name="bulkval" id="bulkval" value="'.$bulkval.'">';
             
             $content .= $formEnd;
             $content .= $this->renderModalContainer();
