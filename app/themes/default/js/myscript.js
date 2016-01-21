@@ -1,5 +1,8 @@
 $(document).ready(function()
 {
+    var opportunity_closedate = $("#opportunity_closedate").val();
+    $("#Contract_closeDate").val(opportunity_closedate);
+    
     var unitscr = $("#unitscr").val();
     var totalbulkpricstm =  $("#totalbulkpricstm").val(); 
     var totalcostprccstm =  $("#totalcostprccstm").val(); 

@@ -82,9 +82,9 @@
             $req = explode("index.php/", $_SERVER['REQUEST_URI']);
             if(isset($req[1])) {
                 $res = explode("/", $req[1]);
-                if(isset($res[0]) && $res[0]=='contracts')
+                if(isset($res[0]) && $res[0]=='contracts' && isset($_REQUEST['id']))
                 {
-                    $url = Yii::app()->request->baseUrl.'/index.php/validations/default/create';
+                    $url = Yii::app()->request->baseUrl.'/index.php/validations/default/create?id='.$_REQUEST['id'];
                     $content .= '<a style="padding-left:30px" href="'.$url.'"><span class="z-label">Validation</span></a>';
                 }
             }

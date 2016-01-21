@@ -38,7 +38,23 @@
     {
         public function actionCreate()
         {
-            $this->render('detailviewgrid');
+            $rec_a['unitscstmcstm'] = $rec_t['value'] = $rec_c['value'] = 0;
+            $sql = "select * from contract where id=".$_REQUEST['id'];
+            $rec = Yii::app()->db->createCommand($sql)->queryRow();
+            if(isset($rec['doorfeecstmcstm_currencyvalue_id']) && !empty($rec['doorfeecstmcstm_currencyvalue_id'])) {
+                $sql_t = "select * from currencyvalue where id=".$rec['doorfeecstmcstm_currencyvalue_id'];
+                $rec_t = Yii::app()->db->createCommand($sql_t)->queryRow();
+            }
+            if(isset($rec['amount_currencyvalue_id']) && !empty($rec['amount_currencyvalue_id'])) {
+                $sql_c = "select * from currencyvalue where id=".$rec['amount_currencyvalue_id'];
+                $rec_c = Yii::app()->db->createCommand($sql_c)->queryRow();
+            }
+            if(isset($rec['account_id']) && !empty($rec['account_id'])) {
+                $sql_a = "select * from account where id=".$rec['account_id'];
+                $rec_a = Yii::app()->db->createCommand($sql_a)->queryRow();
+            }
+            $result = array('nounits'=>$rec_a['unitscstmcstm'], 'doorfee'=>$rec_t['value'], 'totalkey'=>$rec_c['value']);
+            $this->render('detailviewgrid',array('result'=>$result));
         }
     }
 ?>

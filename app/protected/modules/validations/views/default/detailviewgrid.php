@@ -15,15 +15,15 @@
                             <tbody>
                                 <tr>
                                     <td>Number of Units</td>
-                                    <td><input type="text" name="no_units" id="no_units" value="<?php echo $_SESSION['unitsCstmCstm'];?>"></td>
+                                    <td><input type="text" name="no_units" id="no_units" value="<?php echo $result['nounits'];?>"></td>
                                     <td style="padding-left:30px">Contract Term (Years)</td>
                                     <td style="padding-left:20px"><input type="text" name="contract_term" id="contract_term" value=""></td>
                                 </tr>
                                 <tr>
                                     <td>Door Fee</td>
-                                    <td><input type="text" name="door_fee" id="door_fee" value="<?php echo $_SESSION['unitsCstmCstm'];?>"></td>
+                                    <td><input type="text" name="door_fee" id="door_fee" value="<?php echo $result['doorfee'];?>"></td>
                                     <td style="padding-left:30px">Total Key Monies</td>
-                                    <td style="padding-left:20px"><input type="text" name="total_key" id="total_key" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="total_key" id="total_key"  value="<?php echo $result['totalkey'];?>"></td>
                                 </tr>
                                 <tr><td colspan="4"><h3>Video</h3></td></tr>
                                 <tr>

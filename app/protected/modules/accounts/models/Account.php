@@ -195,7 +195,7 @@
                     'account'                => Zurmo::t('AccountsModule',      'Parent AccountsModuleSingularLabel',  $params, null, $language),
                     'accounts'               => Zurmo::t('AccountsModule',      'AccountsModulePluralLabel',           $params, null, $language),
                     'annualRevenue'          => Zurmo::t('AccountsModule',      'Annual Revenue',                      array(), null, $language),
-                    'billingAddress'         => Zurmo::t('AccountsModule',      'Billing Address',                     array(), null, $language),
+                    'billingAddress'         => Zurmo::t('AccountsModule',      'Service Address',                     array(), null, $language),
                     'contacts'               => Zurmo::t('ContactsModule',      'ContactsModulePluralLabel',           $params, null, $language),
                     'description'            => Zurmo::t('ZurmoModule',         'Description',                         array(), null, $language),
                     'employees'              => Zurmo::t('AccountsModule',      'Employees',                           array(), null, $language),

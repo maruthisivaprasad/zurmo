@@ -138,6 +138,7 @@
         {
             $sql = "select * from opportunity where id=".$relationid;
             $rec = Yii::app()->db->createCommand($sql)->queryRow();
+            
             $rec_t['value'] = $rec_c['value'] = $rec_v['value'] = $rec_a['value'] = $rec_i['value'] = $rec_p['value'] = $bulkval = '';
             if(isset($rec['totalbulkpricstm_currencyvalue_id']) && !empty($rec['totalbulkpricstm_currencyvalue_id'])) {
                 //get totalbuilprice
@@ -184,6 +185,12 @@
             $_SESSION['phonepricstm'] = !empty($rec_p['value']) ? $rec_p['value'] : 0;
             $_SESSION['internetpricstm'] = !empty($rec_i['value']) ? $rec_i['value'] : 0;
             $_SESSION['bulkval'] = $bulkval;
+            if($rec['closedate']!='')
+            {
+                $opportunity_closedate = explode("-", $rec['closedate']);
+                if(!empty($opportunity_closedate))
+                    $_SESSION['opportunity_closedate'] = $opportunity_closedate[1]."/".$opportunity_closedate[2]."/".$opportunity_closedate[0];
+            }
         }
 
         public function actionEdit($id, $redirectUrl = null)

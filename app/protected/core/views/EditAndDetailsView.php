@@ -115,6 +115,7 @@
                 $content .= $this->resolveAndWrapDockableViewToolbarContent($actionElementContent);
             }
             $formEnd = $clipWidget->renderEndWidget();
+            $opportunity_closedate = '';
             $unitscst = $totalbulkpricstm = $totalcostprccstm = 1;
             $videopricstm = $alarampricstm = $internetpricstm = $phonepricstm = $bulkval = 0;
             if(isset($_SESSION['unitsCstmCstm']) && !empty($_SESSION['unitsCstmCstm']))
@@ -134,7 +135,9 @@
                 $internetpricstm = $_SESSION['internetpricstm']; 
             if(isset($_SESSION['bulkval']) && !empty($_SESSION['bulkval']))
                 $bulkval = $_SESSION['bulkval']; 
-
+            if(isset($_SESSION['opportunity_closedate']) && !empty($_SESSION['opportunity_closedate']))
+                $opportunity_closedate = $_SESSION['opportunity_closedate']; 
+            
             $content .= '<input type="hidden" name="unitscr" id="unitscr" value="'.$unitscst.'">';
             $content .= '<input type="hidden" name="totalbulkpricstm" id="totalbulkpricstm" value="'.$totalbulkpricstm.'">';
             $content .= '<input type="hidden" name="totalcostprccstm" id="totalcostprccstm" value="'.$totalcostprccstm.'">';
@@ -144,6 +147,7 @@
             $content .= '<input type="hidden" name="phonepricstm" id="phonepricstm" value="'.$phonepricstm.'">';
             $content .= '<input type="hidden" name="internetpricstm" id="internetpricstm" value="'.$internetpricstm.'">';
             $content .= '<input type="hidden" name="bulkval" id="bulkval" value="'.$bulkval.'">';
+            $content .= '<input type="hidden" name="opportunity_closedate" id="opportunity_closedate" value="'.$opportunity_closedate.'">';
             
             $content .= $formEnd;
             $content .= $this->renderModalContainer();
