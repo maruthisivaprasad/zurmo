@@ -192,6 +192,7 @@
                                     <td style="padding-left:30px">Cost per Unit</td>
                                     <td style="padding-left:20px"><input type="text" name="cost_per_unit" id="cost_per_unit" readonly></td>
                                 </tr>
+                                <tr><td colspan="4"><input type="button" name="assesment_save" id="assesment_save" value="Go" onclick="getassesmenttotal();"></td></tr>
                                 <tr><td colspan="4"><h3>Overall Assessment</h3></td></tr>
                                 <tr>
                                     <td colspan="2"><strong>Qualifyers</strong></td>
@@ -199,34 +200,53 @@
                                     <td><strong>Results</strong></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Bulk Margin:</td>
+                                    <td colspan="2">Bulk Margin(%):</td>
                                     <td><input type="text" name="bulk_cal" id="bulk_cal" readonly></td>
-                                    <td><input type="text" name="bulk_res" id="bulk_res" readonly></td>
+                                    <td style="padding-left:30px">
+                                        <input type="text" name="bulk_res" id="bulk_res" readonly>
+                                        <input type="hidden" name="bulk_res_value" id="bulk_res_value">
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Blended Margin:</td>
+                                    <td colspan="2">Blended Margin(%):</td>
                                     <td><input type="text" name="blended_cal" id="blended_cal" readonly></td>
-                                    <td><input type="text" name="blended_res" id="blended_res" readonly></td>
+                                    <td style="padding-left:30px">
+                                        <input type="text" name="blended_res" id="blended_res" readonly>
+                                        <input type="hidden" name="blended_res_value" id="blended_res_value">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">ROI Calculation (Bulk Only):</td>
                                     <td><input type="text" name="roi_cal" id="roi_cal" readonly></td>
-                                    <td><input type="text" name="roi_res" id="roi_res" readonly></td>
+                                    <td style="padding-left:30px">
+                                        <input type="text" name="roi_res" id="roi_res" readonly>
+                                        <input type="hidden" name="roi_res_value" id="roi_res_value">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">ROI Calculation (Blended):</td>
                                     <td><input type="text" name="roi_blended" id="roi_blended" readonly></td>
-                                    <td><input type="text" name="roi_res" id="roi_res" readonly></td>
+                                    <td style="padding-left:30px">
+                                        <input type="text" name="roi_blend_res" id="roi_blend_res" readonly>
+                                        <input type="hidden" name="roi_blend_res_value" id="roi_blend_res_value">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">CapX ROI w/ Key Money (Bulk):</td>
                                     <td><input type="text" name="roi_money" id="roi_money" readonly></td>
-                                    <td><input type="text" name="roi_money_res" id="roi_money_res" readonly></td>
+                                    <td style="padding-left:30px">
+                                        <input type="text" name="roi_money_res" id="roi_money_res" readonly>
+                                        <input type="hidden" name="roi_money_res_value" id="roi_money_res_value">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">CapX ROI w/ Key Money (Blended):</td>
                                     <td><input type="text" name="roi_key" id="roi_key" readonly></td>
-                                    <td><input type="text" name="roi_key_res" id="roi_key_res" readonly></td>
+                                    <td style="padding-left:30px">
+                                        <input type="text" name="roi_key_res" id="roi_key_res" readonly>
+                                        <input type="hidden" name="roi_key_res_value" id="roi_key_res_value">
+                                        <input type="hidden" name="total_res_value" id="total_res_value">
+                                    </td>
                                 </tr>
                                 <tr><td colspan="4"><h3>Overall Score</h3></td></tr>
                                 <tr><td colspan="4"><input type="text" name="overall_score" id="overall_score" readonly></td></tr>
