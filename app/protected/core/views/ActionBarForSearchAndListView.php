@@ -118,28 +118,55 @@
 
         public static function getDefaultMetadata()
         {
-            $metadata = array(
-                'global' => array(
-                    'toolbar' => array(
-                        'elements' => array(
-                            array('type'  => 'CreateMenu',
-                                  'iconClass' => 'icon-create'),
-                            array('type'  => 'MassEditMenu',
-                                  'listViewGridId' => 'eval:$this->listViewGridId',
-                                  'pageVarName' => 'eval:$this->pageVarName',
-                                  'iconClass'   => 'icon-edit'),
-                            array('type'  => 'ExportMenu',
-                                  'listViewGridId' => 'eval:$this->listViewGridId',
-                                  'pageVarName' => 'eval:$this->pageVarName',
-                                  'iconClass'   => 'icon-export'),
-                            array('type'  => 'MassDeleteMenu',
-                                  'listViewGridId' => 'eval:$this->listViewGridId',
-                                  'pageVarName' => 'eval:$this->pageVarName',
-                                  'iconClass'   => 'icon-delete'),
+            $requesturl = explode("index.php/", $_SERVER['REQUEST_URI']);
+            $pos = strpos($requesturl[1], "opportunities");
+            if ($pos !== false) {
+                $metadata = array(
+                    'global' => array(
+                        'toolbar' => array(
+                            'elements' => array(
+                                array('type'  => 'MassEditMenu',
+                                      'listViewGridId' => 'eval:$this->listViewGridId',
+                                      'pageVarName' => 'eval:$this->pageVarName',
+                                      'iconClass'   => 'icon-edit'),
+                                array('type'  => 'ExportMenu',
+                                      'listViewGridId' => 'eval:$this->listViewGridId',
+                                      'pageVarName' => 'eval:$this->pageVarName',
+                                      'iconClass'   => 'icon-export'),
+                                array('type'  => 'MassDeleteMenu',
+                                      'listViewGridId' => 'eval:$this->listViewGridId',
+                                      'pageVarName' => 'eval:$this->pageVarName',
+                                      'iconClass'   => 'icon-delete'),
+                            ),
                         ),
                     ),
-                ),
-            );
+                );
+            }
+            else
+            {
+                $metadata = array(
+                    'global' => array(
+                        'toolbar' => array(
+                            'elements' => array(
+                                array('type'  => 'CreateMenu',
+                                      'iconClass' => 'icon-create'),
+                                array('type'  => 'MassEditMenu',
+                                      'listViewGridId' => 'eval:$this->listViewGridId',
+                                      'pageVarName' => 'eval:$this->pageVarName',
+                                      'iconClass'   => 'icon-edit'),
+                                array('type'  => 'ExportMenu',
+                                      'listViewGridId' => 'eval:$this->listViewGridId',
+                                      'pageVarName' => 'eval:$this->pageVarName',
+                                      'iconClass'   => 'icon-export'),
+                                array('type'  => 'MassDeleteMenu',
+                                      'listViewGridId' => 'eval:$this->listViewGridId',
+                                      'pageVarName' => 'eval:$this->pageVarName',
+                                      'iconClass'   => 'icon-delete'),
+                            ),
+                        ),
+                    ),
+                );
+            }
             return $metadata;
         }
 

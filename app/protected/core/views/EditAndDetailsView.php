@@ -107,9 +107,21 @@
             $formContent  = $this->beforeRenderingFormLayout();
             $formContent .= ZurmoHtml::tag('div', array('class' => 'left-column' . $class), $this->renderFormLayout($form));
             $formContent .= $this->renderRightSideContent($form);
+            $requesturl = explode("index.php/", $_SERVER['REQUEST_URI']);
+            $pos = strpos($requesturl[1], "opportunities");
+            if(isset($_SESSION['opport']) && !empty($_SESSION['opport']) && $_SESSION['opport']==1)
+            {
+                if ($pos !== false)
+                    $formContent = "<font color='red'><center><h3>This opportunity has already link to another account. Please select different opportunity.</h3></center></font>";
+            }
             $content .= $this->renderAttributesContainerWrapperDiv($formContent);
             $content .= $this->renderAfterFormLayout($form);
             $actionElementContent = $this->renderActionElementBar(true);
+            if(isset($_SESSION['opport']) && !empty($_SESSION['opport']) && $_SESSION['opport']==1)
+            {
+                if ($pos !== false)
+                    $actionElementContent = '';
+            }
             if ($actionElementContent != null)
             {
                 $content .= $this->resolveAndWrapDockableViewToolbarContent($actionElementContent);

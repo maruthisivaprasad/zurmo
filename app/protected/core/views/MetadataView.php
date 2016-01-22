@@ -87,6 +87,10 @@
                     $url = Yii::app()->request->baseUrl.'/index.php/validations/default/create?id='.$_REQUEST['id'];
                     $content .= '<a style="padding-left:30px" href="'.$url.'"><span class="z-label">Validation</span></a>';
                 }
+                if(isset($res[0]) && $res[0]=='opportunities')
+                    $content .= '<a style="padding-left:30px" href="#" id="getopportunitesdata"><span class="z-label">Calculate</span></a>';
+                if(isset($res[0]) && $res[0]=='contracts')
+                    $content .= '<a style="padding-left:30px" href="#" id="getcontractdata"><span class="z-label">Calculate</span></a>';
             }
             $content = ZurmoHtml::tag('div', array('class' => 'form-toolbar'), $content);
             $content = ZurmoHtml::tag('div', array('class' => 'view-toolbar-container clearfix dock' .

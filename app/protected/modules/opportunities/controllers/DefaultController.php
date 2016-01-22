@@ -119,6 +119,13 @@
         {
             $getaccount = Account::getById(intval($_GET['relationModelId']));
             $_SESSION['unitsCstmCstm'] = !empty($getaccount->unitsCstmCstm) ? $getaccount->unitsCstmCstm : 1;
+            $sql = "select * from opportunity where account_id=".$_GET['relationModelId'];
+            $rec = Yii::app()->db->createCommand($sql)->queryRow();
+            if(!empty($rec))
+                $_SESSION['opport'] = 1;
+            else
+                $_SESSION['opport'] = 0;
+            
             $opportunity = $this->resolveNewModelByRelationInformation( new Opportunity(),
                                                                                 $relationAttributeName,
                                                                                 (int)$relationModelId,
