@@ -20,29 +20,30 @@ $(document).ready(function()
     var phonepricstm = $("#phonepricstm").val();
     var internetpricstm = $("#internetpricstm").val();
     var bulkval = $("#bulkval").val();
-    //if(videopricstm > 0)
-    if (bulkval.indexOf("Video") >= 0)
-    {
-    	document.getElementById("Contract_propbillCstmCstm").required = true;
-    	$("#Contract_propbillCstmCstm").closest('td').prev('th').append("<span class='required'>*</span>");
-    }	
-    //if(alarampricstm > 0)
-    if (bulkval.indexOf("Alarm") >= 0)
-    {
-    	document.getElementById("Contract_propAlaramCstm").required = true;
-    	$("#Contract_propAlaramCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+    if (bulkval  === undefined) {
     }
-    //if(phonepricstm > 0)
-    if (bulkval.indexOf("Phone") >= 0)
+    else
     {
-    	document.getElementById("Contract_propphoneCstm").required = true;
-    	$("#Contract_propphoneCstm").closest('td').prev('th').append("<span class='required'>*</span>");
-    }
-    //if(internetpricstm > 0)
-    if (bulkval.indexOf("Internet") >= 0)
-    {
-    	document.getElementById("Contract_propInternetCstm").required = true;
-    	$("#Contract_propInternetCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+        if (bulkval.indexOf("Video") >= 0)
+        {
+            document.getElementById("Contract_propbillCstmCstm").required = true;
+            $("#Contract_propbillCstmCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+        }	
+        if (bulkval.indexOf("Alarm") >= 0)
+        {
+            document.getElementById("Contract_propAlaramCstm").required = true;
+            $("#Contract_propAlaramCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+        }
+        if (bulkval.indexOf("Phone") >= 0)
+        {
+            document.getElementById("Contract_propphoneCstm").required = true;
+            $("#Contract_propphoneCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+        }
+        if (bulkval.indexOf("Internet") >= 0)
+        {
+            document.getElementById("Contract_propInternetCstm").required = true;
+            $("#Contract_propInternetCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+        }
     }
     $("#getopportunitesdata").click(function(){
         var video = $("#Opportunity_vidpricingCsCstm_value").val();
@@ -64,7 +65,7 @@ $(document).ready(function()
         var totalc = (totalcostprccstm*1) + (totalkey*1);
         var pjcost1 = totalc/monthrec;
         var pjcost = Math.round(pjcost1);
-        $("#Contract_roiCstmCstm").val(pjcost.toFixed(2));
+        $("#Contract_roiCstmCstm").val(pjcost);
         var bulkmargin = $("#Contract_blendedbulkCstm").val();
         var totalnet = (monthrec * bulkmargin) / 100;
         $("#Contract_monthlynetCsCstm_value").val(totalnet.toFixed(2));

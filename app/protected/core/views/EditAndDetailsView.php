@@ -111,7 +111,7 @@
             $pos = strpos($requesturl[1], "opportunities");
             if(isset($_SESSION['opport']) && !empty($_SESSION['opport']) && $_SESSION['opport']==1)
             {
-                if ($pos !== false)
+                if ($pos !== false && !isset($_REQUEST['id']))
                     $formContent = "<font color='red'><center><h3>This opportunity has already link to another account. Please select different opportunity.</h3></center></font>";
             }
             $content .= $this->renderAttributesContainerWrapperDiv($formContent);
