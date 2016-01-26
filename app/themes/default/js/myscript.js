@@ -52,8 +52,8 @@ $(document).ready(function()
         var alaram = $("#Opportunity_alarmbulkCstCstm_value").val();
         var totalBulk = (video*1) + (internet*1) + (phone*1) + (alaram*1);
         var totalProposed = totalBulk * unitscr;
-        $("#Opportunity_totalbulkpriCstm_value").val(totalBulk);
-        $("#Opportunity_tprmonreCstm_value").val(totalProposed);
+        $("#Opportunity_totalbulkpriCstm_value").val(totalBulk.toFixed(2));
+        $("#Opportunity_tprmonreCstm_value").val(totalProposed.toFixed(2));
         var conscst = $("#Opportunity_constructcosCstm_value").val();
         var totalProject = conscst * unitscr;
         $("#Opportunity_amount_value").val(totalProject.toFixed(2));
