@@ -38,7 +38,8 @@
     {
         public function actionCreate()
         {
-            $rec_aa['unitscstmcstm'] = $rec_t['value'] = $rec_c['value'] = 0;
+            $rec_aa['unitscstmcstm'] = $rec_t['value'] = $rec_c['value'] = $rec_v['value'] = $rec_al['value'] = 
+                    $rec_i['value'] = $rec_co['value'] = $rec_p['value'] = $contmonths = 0;
             $result = array();
             if(isset($_REQUEST['id']) && !empty($_REQUEST['id']))
             {
@@ -58,13 +59,39 @@
                 {
                     $sql_a = "select * from opportunity where id=".$rec_o['opportunity_id'];
                     $rec_a = Yii::app()->db->createCommand($sql_a)->queryRow();
+                    if(isset($rec_a['vidpricingcscstm_currencyvalue_id']) && !empty($rec_a['vidpricingcscstm_currencyvalue_id'])) {
+                        $sql_v = "select * from currencyvalue where id=".$rec_a['vidpricingcscstm_currencyvalue_id'];
+                        $rec_v = Yii::app()->db->createCommand($sql_v)->queryRow();
+                    }
+                    if(isset($rec_a['alarmbulkcstcstm_currencyvalue_id']) && !empty($rec_a['alarmbulkcstcstm_currencyvalue_id'])) {
+                        $sql_al = "select * from currencyvalue where id=".$rec_a['alarmbulkcstcstm_currencyvalue_id'];
+                        $rec_al = Yii::app()->db->createCommand($sql_al)->queryRow();
+                    }
+                    if(isset($rec_a['internetbulkcstm_currencyvalue_id']) && !empty($rec_a['internetbulkcstm_currencyvalue_id'])) {
+                        $sql_i = "select * from currencyvalue where id=".$rec_a['internetbulkcstm_currencyvalue_id'];
+                        $rec_i = Yii::app()->db->createCommand($sql_i)->queryRow();
+                    }
+                    if(isset($rec_a['phonebulkcstcstm_currencyvalue_id']) && !empty($rec_a['phonebulkcstcstm_currencyvalue_id'])) {
+                        $sql_p = "select * from currencyvalue where id=".$rec_a['phonebulkcstcstm_currencyvalue_id'];
+                        $rec_p = Yii::app()->db->createCommand($sql_p)->queryRow();
+                    }
+                    if(isset($rec_a['contractlengcstm_customfield_id']) && !empty($rec_a['contractlengcstm_customfield_id'])) {
+                        $sql_co = "select * from customfield where id=".$rec_a['contractlengcstm_customfield_id'];
+                        $rec_co = Yii::app()->db->createCommand($sql_co)->queryRow();
+                    }
                     if(!empty($rec_a['account_id']))
                     {
                         $sql_aa = "select * from account where id=".$rec_a['account_id'];
                         $rec_aa = Yii::app()->db->createCommand($sql_aa)->queryRow();
                     }
                 }
-                $result = array('nounits'=>$rec_aa['unitscstmcstm'], 'doorfee'=>$rec_t['value'], 'totalkey'=>$rec_c['value']);
+                if($rec_co['value'] > 1)
+                {
+                    $contmonths = strstr($rec_co['value'], ' years', true);
+                }
+                $result = array('nounits'=>$rec_aa['unitscstmcstm'], 'doorfee'=>$rec_t['value'], 'totalkey'=>$rec_c['value'],
+                    'videommr'=>$rec_v['value'], 'alamrm'=>$rec_al['value'], 'internetmmr'=>$rec_i['value'], 'phonemmr'=>$rec_p['value'],
+                    'contmonths'=>$contmonths);
             }
             $this->render('detailviewgrid',array('result'=>$result));
         }

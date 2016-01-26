@@ -17,7 +17,7 @@
                                     <td>Number of Units</td>
                                     <td><input type="text" name="no_units" id="no_units" value="<?php echo $result['nounits'];?>"></td>
                                     <td style="padding-left:30px">Contract Term (Years)</td>
-                                    <td style="padding-left:20px"><input type="text" name="contract_term" id="contract_term" value=""></td>
+                                    <td style="padding-left:20px"><input type="text" name="contract_term" id="contract_term" value="<?php echo $result['contmonths'];?>"></td>
                                 </tr>
                                 <tr>
                                     <td>Door Fee</td>
@@ -34,7 +34,7 @@
                                 </tr>
                                 <tr>
                                     <td>Bulk MRR</td>
-                                    <td><input type="text" name="video_bulk_mmr" id="video_bulk_mmr" value=""></td>
+                                    <td><input type="text" name="video_bulk_mmr" id="video_bulk_mmr" value="<?php echo $result['videommr'];?>"></td>
                                     <td style="padding-left:30px">Retail Cost Base</td>
                                     <td style="padding-left:20px"><input type="text" name="video_retail_cost" id="video_retail_cost" value=""></td>
                                 </tr>
@@ -66,7 +66,7 @@
                                 </tr>
                                 <tr>
                                     <td>Bulk MRR</td>
-                                    <td><input type="text" name="internet_bulk_mmr" id="internet_bulk_mmr" value=""></td>
+                                    <td><input type="text" name="internet_bulk_mmr" id="internet_bulk_mmr" value="<?php echo $result['internetmmr'];?>"></td>
                                     <td style="padding-left:30px">Retail Cost Base</td>
                                     <td style="padding-left:20px"><input type="text" name="internet_retail_cost" id="internet_retail_cost" value=""></td>
                                 </tr>
@@ -98,7 +98,7 @@
                                 </tr>
                                 <tr>
                                     <td>Bulk MRR</td>
-                                    <td><input type="text" name="phone_bulk_mmr" id="phone_bulk_mmr" value=""></td>
+                                    <td><input type="text" name="phone_bulk_mmr" id="phone_bulk_mmr" value="<?php echo $result['phonemmr'];?>"></td>
                                     <td style="padding-left:30px">Retail Cost Base</td>
                                     <td style="padding-left:20px"><input type="text" name="phone_retail_cost" id="phone_retail_cost" value=""></td>
                                 </tr>
@@ -130,7 +130,7 @@
                                 </tr>
                                 <tr>
                                     <td>Bulk MRR</td>
-                                    <td><input type="text" name="alarm_bulk_mmr" id="alarm_bulk_mmr" value=""></td>
+                                    <td><input type="text" name="alarm_bulk_mmr" id="alarm_bulk_mmr" value="<?php echo $result['alamrm'];?>"></td>
                                     <td style="padding-left:30px">Retail Cost Base</td>
                                     <td style="padding-left:20px"><input type="text" name="alarm_retail_cost" id="alarm_retail_cost" value=""></td>
                                 </tr>
