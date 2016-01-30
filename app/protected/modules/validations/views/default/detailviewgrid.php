@@ -250,9 +250,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <span class="z-label"><input type="submit" name="generate" value="Generate Pdf" onclick="generatepdf()"></span>
                 </div>
             </div>
-            <input type="submit" name="generate" value="Generate" onclick="generatepdf()">
         </form>
     </div>
 </div>
