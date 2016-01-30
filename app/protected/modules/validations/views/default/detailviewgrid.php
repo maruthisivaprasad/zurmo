@@ -2,10 +2,7 @@
 <div class="wrapper">
     <h1><span class="truncated-title"><span class="ellipsis-content">Validations</span></span></h1>
     <div class="wide double-column form">
-        <form id="edit-form" action="<?php echo Yii::app()->request->baseUrl;?>/index.php/validations/default/create" method="post">
-            <div style="display:none">
-                <input type="hidden" value="01d6cbc28740a40361af50c64f493abb02186e2b" name="YII_CSRF_TOKEN" />
-            </div>
+        <form id="validationform" action="<?php echo Yii::app()->request->baseUrl;?>/index.php/validations/default/generatepdf" method="get">
             <div class="attributesContainer">
                 <div class="left-column">
                     <div class="panel">
@@ -255,7 +252,21 @@
                     </div>
                 </div>
             </div>
+            <input type="submit" name="generate" value="Generate" onclick="generatepdf()">
         </form>
     </div>
 </div>
+<script>
+function generatepdf() {
+    var data = $( "form" ).serialize();
+    $.ajax({
+        url: "generatepdf",
+        type: "post",
+        data: data,
+        success: function(d) {
+            //alert(d);
+        }
+    });
+}
+</script>
 <?php $this->renderpartial('customfooter');?>

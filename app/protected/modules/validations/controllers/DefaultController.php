@@ -95,5 +95,13 @@
             }
             $this->render('detailviewgrid',array('result'=>$result));
         }
+        public function actionGeneratepdf()
+        {
+            $data = $_GET;
+            $docName = date("mdY", strtotime(date('Y-m-d')));
+            $mPDF1 = Yii::app()->ePdf->mpdf('utf-8', 'Letter');
+            $mPDF1->WriteHTML($this->renderPartial('getvalidationpdf', array('data'=>$data),true));
+            $mPDF1->Output($docName . '.pdf', 'D');
+        }
     }
 ?>
