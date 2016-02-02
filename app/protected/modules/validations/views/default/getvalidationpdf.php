@@ -1,8 +1,8 @@
-<table class="form-fields double-column">
-    <colgroup><col class="col-0" /><col class="col-1" />
-    <col class="col-2" /><col class="col-3" /></colgroup>
+<?php ini_set("memory_limit","512M");?>
+<table border="1" style="border-collapse:collapse;" cellpadding="0" cellspacing="1">
     <tbody>
-        <tr>
+    	<tr><td colspan="4"><h3><center>Validations</center></h3></td></tr>
+    	<tr>
             <td>Number of Units</td>
             <td><?php echo $data['no_units'];?></td>
             <td style="padding-left:30px">Contract Term (Years)</td>
