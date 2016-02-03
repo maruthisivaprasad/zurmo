@@ -53,10 +53,6 @@
                             array(  'label'       => Zurmo::t('ReportsModule', 'to CSV'),
                                     'url'         => '#',
                                     'itemOptions' => array('id'   => 'exportToCsv')
-                            ),
-                            array(  'label'       => Zurmo::t('ReportsModule', 'to PDF'),
-                                    'url'         => '#',
-                                    'itemOptions' => array('id'   => 'exportToPdf')
                             )
             );
             return $menuItems;
@@ -88,30 +84,6 @@
                     }
                 );
             ");
-            Yii::app()->clientScript->registerScript( 'exportToPdf', "
-                        $('#exportToPdf').unbind('click.action');
-                        $('#exportToPdf').bind('click.action', function()
-                            {
-                                var options =
-                                {
-                                    url     : $.fn.yiiGridView.getUrl('report-results-grid-view'),
-                                    baseUrl : '" . Yii::app()->createUrl($this->moduleId . '/' . $this->controllerId) . "'
-                                }
-                                if (options.url.split( '?' ).length == 2)
-                                {
-                                    options.url = options.baseUrl +'/'+ 'exportpdf' + '?' + options.url.split( '?' )[1];
-                                }
-                                else
-                                {
-                                    options.url = options.baseUrl +'/'+ 'exportpdf';
-                                }
-                                var data = '' + 'export=' + '&ajax='; " . // Not Coding Standard
-                        "url = $.param.querystring(options.url, data);
-                        window.location.href = url;
-                        return false;
-                    }
-                );
-            ");    
             return parent::renderMenuItem();
         }
 

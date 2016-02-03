@@ -426,47 +426,6 @@
             $this->redirect(array($this->getId() . '/index'));
         }
 
-        public function actionExportpdf($id, $stickySearchKey = null)
-        {
-            assert('$stickySearchKey == null || is_string($stickySearchKey)');
-            $savedReport                    = SavedReport::getById((int)$id);
-            ControllerSecurityUtil::resolveCanCurrentUserAccessModule($savedReport->moduleClassName);
-            ControllerSecurityUtil::resolveAccessCanCurrentUserReadModel($savedReport);
-            $report                         = SavedReportToReportAdapter::makeReportBySavedReport($savedReport);
-            $dataProvider                   = $this->getDataProviderForExport($report, $report->getId(), false);
-            $totalItems                     = intval($dataProvider->calculateTotalItemCount());
-            $data                           = array();
-            if ($totalItems > 0)
-            {
-                $reportToExportAdapter  = ReportToExportAdapterFactory::createReportToExportAdapter($report, $dataProvider);
-                $headerData             = $reportToExportAdapter->getHeaderData();
-                $data                   = $reportToExportAdapter->getData();
-                $mPDF1 = Yii::app()->ePdf->mpdf('utf-8', 'Letter');
-                $pdfdata = '<table border="1" style="border-collapse:collapse;" cellpadding="0" cellspacing="1"><tbody><tr>';
-                foreach($headerData as $key=>$value) {
-                  $pdfdata .= '<td>'.$value.'</td>';
-                }
-                $pdfdata .= '</tr>';
-                foreach($data as $key=>$value) {
-                  $pdfdata .= '<tr>';
-                    foreach ($value as $key1 => $value1) {
-                      $pdfdata .= '<td>'.$value1.'</td>';
-                    }
-                  $pdfdata .= '</tr>';
-                }
-                $pdfdata .= '</tbody></table>';
-                $mPDF1->WriteHTML($pdfdata);
-                $mPDF1->Output($this->getModule()->getName() . '.pdf', 'D');
-            }
-            else
-            {
-                Yii::app()->user->setFlash('notification',
-                    Zurmo::t('ZurmoModule', 'There is no data to export.')
-                );
-            }
-            $this->redirect(array($this->getId() . '/index'));
-        }
-
         public function actionModalList($stateMetadataAdapterClassName = null)
         {
             $modalListLinkProvider = new SelectFromRelatedEditModalListLinkProvider(
