@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+    $("#FooterView .container #credit-link").html('<span>Copyright &#169; Opticaltel., 2015. All rights reserved.</span>');
     var opportunity_closedate = $("#opportunity_closedate").val();
     $("#Contract_closeDate").val(opportunity_closedate);
     
@@ -25,25 +26,25 @@ $(document).ready(function()
     else
     {
         if (bulkval.indexOf("Video") >= 0)
-        {
-            document.getElementById("Contract_propbillCstmCstm").required = true;
-            $("#Contract_propbillCstmCstm").closest('td').prev('th').append("<span class='required'>*</span>");
-        }	
-        if (bulkval.indexOf("Alarm") >= 0)
-        {
-            document.getElementById("Contract_propAlaramCstm").required = true;
-            $("#Contract_propAlaramCstm").closest('td').prev('th').append("<span class='required'>*</span>");
-        }
-        if (bulkval.indexOf("Phone") >= 0)
-        {
-            document.getElementById("Contract_propphoneCstm").required = true;
-            $("#Contract_propphoneCstm").closest('td').prev('th').append("<span class='required'>*</span>");
-        }
-        if (bulkval.indexOf("Internet") >= 0)
-        {
-            document.getElementById("Contract_propInternetCstm").required = true;
-            $("#Contract_propInternetCstm").closest('td').prev('th').append("<span class='required'>*</span>");
-        }
+	    {
+	    	$("#Contract_propbillCstmCstm").prop('required',true);
+	    	$("#Contract_propbillCstmCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+	    }	
+	    if (bulkval.indexOf("Alarm") >= 0)
+	    {
+                $("#Contract_propAlaramCstm").prop('required',true);
+	    	$("#Contract_propAlaramCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+	    }
+	    if (bulkval.indexOf("Phone") >= 0)
+	    {
+                $("#Contract_propphoneCstm").prop('required',true);
+	    	$("#Contract_propphoneCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+	    }
+	    if (bulkval.indexOf("Internet") >= 0)
+	    {
+                $("#Contract_propInternetCstm").prop('required',true);
+	    	$("#Contract_propInternetCstm").closest('td').prev('th').append("<span class='required'>*</span>");
+	    }
     }
     $("#getopportunitesdata").click(function(){
         var video = $("#Opportunity_vidpricingCsCstm_value").val();
